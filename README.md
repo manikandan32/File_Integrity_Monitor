@@ -126,7 +126,7 @@ Baseline auto-updated after change.
 
 ## Author / Contact 👨‍💻
 
-Developed by *[Your Name]* — MSc Cybersecurity Student.  
+Developed by *Shivasurya* — MSc Cybersecurity Student.  
 Purpose: Academic Mini Project | Topic: **File Integrity Monitoring System**
 
 *Made with ❤️ for cybersecurity learning and defense.*
