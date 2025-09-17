@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Integrity Monitoring - Web UI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>📂 File Integrity Monitoring System</h2>
+        <p>Track changes in your files & folders with baseline and monitoring features.</p>
+
+        <div class="buttons">
+            <button onclick="runAction('baseline')">🛠 Generate Baseline</button>
+            <button onclick="runAction('scan')">🔍 Run Scan Once</button>
+            <button onclick="runAction('monitor')">📡 Start Monitoring</button>
+        </div>
+
+        <h3>Results:</h3>
+        <pre id="output">Waiting for action...</pre>
+    </div>
+
+    <script>
+    function runAction(action) {
+        fetch("/" + action, {method: "POST"})
+            .then(res => res.json())
+            .then(data => {
+                // Show status message as plain text instead of JSON
+                if (data.status) {
+                    document.getElementById("output").innerText = "✅ " + data.status;
+                } else {
+                    document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+                }
+            })
+            .catch(err => {
+                document.getElementById("output").innerText = "❌ Error: " + err;
+            });
+    }
+</script>
+
+</body>
+</html>
